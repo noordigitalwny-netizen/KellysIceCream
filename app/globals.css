@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-river: #2F5748;
+  --color-slate: #43504C;
+  --color-wood: #888958;
+  --color-rust: #9B4D35;
+  --color-cream: #F4EFE4;
+}
+
+@layer base {
+  body {
+    @apply bg-[#FAF7F0] text-farmhouse-slate antialiased font-sans selection:bg-farmhouse-river/15 selection:text-farmhouse-river-dark;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-farmhouse-slate-dark tracking-tight;
+  }
+}
+
+/* Subtle organic paper border & scoop curves */
+.paper-edge {
+  box-shadow: 0 0 0 1px rgba(67, 80, 76, 0.08), 0 2px 8px -2px rgba(67, 80, 76, 0.05);
+}
+
+.scoop-corner {
+  border-radius: 1.25rem;
+}
+
+.scoop-corner-lg {
+  border-radius: 1.75rem;
+}
