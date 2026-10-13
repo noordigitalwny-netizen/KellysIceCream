@@ -1,0 +1,376 @@
+export interface Flavor {
+  id: string;
+  name: string;
+  category: "chocolate" | "fruit" | "nut" | "coffee" | "classic" | "seasonal" | "dietary";
+  flavorNotes: string;
+  expectation: "typically available" | "while supplies last";
+  isFeatured?: boolean;
+  imageUrl?: string;
+  dietaryTag?: "Gluten-Friendly" | "No-Sugar-Added" | "Dairy-Free Sorbet" | "Low-Fat";
+}
+
+export const FLAVOR_CATEGORIES = [
+  { id: "all", label: "All Flavors" },
+  { id: "fruit", label: "Fruit & Berry" },
+  { id: "chocolate", label: "Chocolate & Decadence" },
+  { id: "nut", label: "Nut & Peanut Butter" },
+  { id: "coffee", label: "Coffee & Caramel" },
+  { id: "classic", label: "Parlor Classics" },
+  { id: "seasonal", label: "Seasonal & Harvest" },
+  { id: "dietary", label: "Dietary & Non-Dairy" },
+] as const;
+
+export const FEATURED_FAVORITES: Flavor[] = [
+  {
+    id: "feat-black-raspberry",
+    name: "Black Raspberry",
+    category: "fruit",
+    flavorNotes: "Our signature regional hallmark. Deep, vibrant black raspberry puree folded into rich sweet cream for a tangy, velvet finish.",
+    expectation: "typically available",
+    isFeatured: true,
+    imageUrl: "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=700&q=80",
+    dietaryTag: "Gluten-Friendly",
+  },
+  {
+    id: "feat-peanut-butter-ripple",
+    name: "Peanut Butter Ripple",
+    category: "nut",
+    flavorNotes: "Vanilla bean ice cream layered with thick ribbons of salty-sweet churned peanut butter and mini chocolate peanut butter cups.",
+    expectation: "typically available",
+    isFeatured: true,
+    imageUrl: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=700&q=80",
+  },
+  {
+    id: "feat-dark-chocolate-fudge",
+    name: "Dutch Dark Chocolate Fudge",
+    category: "chocolate",
+    flavorNotes: "Heavy Dutch cocoa churned into deep chocolate cream, blended with chewy brownie chunks and melted dark fudge ribbons.",
+    expectation: "typically available",
+    isFeatured: true,
+    imageUrl: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=700&q=80",
+  },
+  {
+    id: "feat-apple-pie",
+    name: "PA Dutch Apple Pie",
+    category: "seasonal",
+    flavorNotes: "Spiced cinnamon apple ice cream churned with local Pennsylvania baked apples, brown sugar, and buttery pie crust flakes.",
+    expectation: "while supplies last",
+    isFeatured: true,
+    imageUrl: "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=700&q=80",
+  },
+  {
+    id: "feat-butter-pecan",
+    name: "Roasted Butter Pecan",
+    category: "nut",
+    flavorNotes: "Whole mammoth pecans roasted in pure butter and sea salt, folded into brown sugar butter cream. A timeless customer staple.",
+    expectation: "typically available",
+    isFeatured: true,
+    imageUrl: "https://images.unsplash.com/photo-1560008581-09826d1de69e?auto=format&fit=crop&w=700&q=80",
+    dietaryTag: "Gluten-Friendly",
+  },
+  {
+    id: "feat-espresso-chip",
+    name: "Delaware Valley Espresso Chip",
+    category: "coffee",
+    flavorNotes: "Steeped dark roast espresso beans blended into rich cream with crunchy dark chocolate micro-shavings throughout.",
+    expectation: "typically available",
+    isFeatured: true,
+    imageUrl: "https://images.unsplash.com/photo-1534766555764-ce878a5e3a2b?auto=format&fit=crop&w=700&q=80",
+    dietaryTag: "Gluten-Friendly",
+  },
+  {
+    id: "feat-cookie-dough",
+    name: "Chocolate Chip Cookie Dough",
+    category: "classic",
+    flavorNotes: "Golden vanilla ice cream generously packed with soft chocolate chip cookie dough nuggets and rich semi-sweet morsels.",
+    expectation: "typically available",
+    isFeatured: true,
+    imageUrl: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=700&q=80",
+  },
+  {
+    id: "feat-raspberry-sorbet",
+    name: "Non-Dairy Wild Raspberry Sorbet",
+    category: "dietary",
+    flavorNotes: "100% dairy-free, water-churned real wild raspberry purée with bright citrus zest notes. Ultra refreshing after a summer float.",
+    expectation: "typically available",
+    isFeatured: true,
+    imageUrl: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=700&q=80",
+    dietaryTag: "Dairy-Free Sorbet",
+  },
+];
+
+export const ALL_FLAVORS: Flavor[] = [
+  ...FEATURED_FAVORITES,
+  // More Fruit Flavors
+  {
+    id: "fl-strawberry",
+    name: "Fresh Valley Strawberry",
+    category: "fruit",
+    flavorNotes: "Real ripe strawberries folded into smooth sweet cream.",
+    expectation: "typically available",
+    dietaryTag: "Gluten-Friendly",
+  },
+  {
+    id: "fl-peach-cobbler",
+    name: "Summer Peach Cobbler",
+    category: "fruit",
+    flavorNotes: "Juicy local peaches churned with sweet biscuit crumble and cinnamon swirl.",
+    expectation: "while supplies last",
+  },
+  {
+    id: "fl-cherry-vanilla",
+    name: "Bordeaux Cherry Vanilla",
+    category: "fruit",
+    flavorNotes: "Whole sweet dark bordeaux cherries swimming in vanilla bean cream.",
+    expectation: "typically available",
+    dietaryTag: "Gluten-Friendly",
+  },
+  {
+    id: "fl-blueberry-cheesecake",
+    name: "Blueberry Graham Cheesecake",
+    category: "fruit",
+    flavorNotes: "Cream cheese base with thick wild blueberry swirl and buttery graham crust.",
+    expectation: "typically available",
+  },
+  {
+    id: "fl-banana-pudding",
+    name: "Southern Banana Pudding",
+    category: "fruit",
+    flavorNotes: "Real banana cream with crushed vanilla wafers and marshmallow swirl.",
+    expectation: "while supplies last",
+  },
+  {
+    id: "fl-coconut-cream",
+    name: "Toasted Coconut Cream",
+    category: "fruit",
+    flavorNotes: "Creamy coconut base loaded with golden toasted coconut shreds.",
+    expectation: "typically available",
+    dietaryTag: "Gluten-Friendly",
+  },
+
+  // More Chocolate Flavors
+  {
+    id: "fl-chocolate-brownie",
+    name: "Chocolate Fudge Brownie",
+    category: "chocolate",
+    flavorNotes: "Rich cocoa base with soft baked fudge brownie chunks.",
+    expectation: "typically available",
+  },
+  {
+    id: "fl-moose-tracks",
+    name: "Classic Moose Tracks",
+    category: "chocolate",
+    flavorNotes: "Vanilla ice cream with mini peanut butter cups and famous thick fudge swirl.",
+    expectation: "typically available",
+  },
+  {
+    id: "fl-midnight-mudslide",
+    name: "Midnight Mudslide",
+    category: "chocolate",
+    flavorNotes: "Dark chocolate ice cream with espresso fudge ribbon and chocolate chunks.",
+    expectation: "typically available",
+  },
+  {
+    id: "fl-german-chocolate",
+    name: "German Chocolate Cake",
+    category: "chocolate",
+    flavorNotes: "Milk chocolate with coconut-caramel swirl and chopped pecans.",
+    expectation: "while supplies last",
+  },
+  {
+    id: "fl-cookies-cream",
+    name: "Oreo Cookies & Cream",
+    category: "chocolate",
+    flavorNotes: "Generous chunks of real chocolate sandwich cookies in vanilla sweet cream.",
+    expectation: "typically available",
+  },
+  {
+    id: "fl-chocolate-marshmallow",
+    name: "Chocolate Marshmallow Cloud",
+    category: "chocolate",
+    flavorNotes: "Old-fashioned chocolate with airy ribbons of marshmallow swirl.",
+    expectation: "typically available",
+    dietaryTag: "Gluten-Friendly",
+  },
+
+  // More Nut Flavors
+  {
+    id: "fl-buckeye-blast",
+    name: "Buckeye Peanut Butter Blast",
+    category: "nut",
+    flavorNotes: "Chocolate ice cream loaded with peanut butter ribbons and buckeye candy pieces.",
+    expectation: "typically available",
+  },
+  {
+    id: "fl-pistachio",
+    name: "Real Pistachio Nut",
+    category: "nut",
+    flavorNotes: "Aromatic almond-pistachio sweet cream with crunchy roasted whole pistachios.",
+    expectation: "typically available",
+    dietaryTag: "Gluten-Friendly",
+  },
+  {
+    id: "fl-maple-walnut",
+    name: "Pennsylvania Maple Walnut",
+    category: "nut",
+    flavorNotes: "Pure maple syrup infused base with crisp English walnut halves.",
+    expectation: "typically available",
+    dietaryTag: "Gluten-Friendly",
+  },
+  {
+    id: "fl-caramel-cashew",
+    name: "Sea Salt Caramel Cashew",
+    category: "nut",
+    flavorNotes: "Buttery sweet cream, salted roasted cashews, and golden caramel ribbon.",
+    expectation: "typically available",
+    dietaryTag: "Gluten-Friendly",
+  },
+  {
+    id: "fl-toffee-crunch",
+    name: "English Toffee Almond Crunch",
+    category: "nut",
+    flavorNotes: "Brown sugar base packed with buttery Heath toffee candy chunks.",
+    expectation: "typically available",
+  },
+
+  // More Coffee & Caramel Flavors
+  {
+    id: "fl-coffee-bean",
+    name: "Columbian Coffee Bean",
+    category: "coffee",
+    flavorNotes: "Smooth, authentic steeped coffee taste made with dark roasted beans.",
+    expectation: "typically available",
+    dietaryTag: "Gluten-Friendly",
+  },
+  {
+    id: "fl-caramel-macchiato",
+    name: "Caramel Macchiato",
+    category: "coffee",
+    flavorNotes: "Coffee ice cream with thick dulce de leche caramel and chocolate chips.",
+    expectation: "typically available",
+    dietaryTag: "Gluten-Friendly",
+  },
+  {
+    id: "fl-salted-caramel",
+    name: "Burnt Sugar Salted Caramel",
+    category: "coffee",
+    flavorNotes: "Deep kettle-cooked caramel ice cream balanced with flake sea salt.",
+    expectation: "typically available",
+    dietaryTag: "Gluten-Friendly",
+  },
+
+  // More Parlor Classics
+  {
+    id: "fl-old-fashioned-vanilla",
+    name: "Old-Fashioned Vanilla",
+    category: "classic",
+    flavorNotes: "Our signature blend of pure cream, cane sugar, and Madagascar vanilla.",
+    expectation: "typically available",
+    dietaryTag: "Gluten-Friendly",
+  },
+  {
+    id: "fl-french-vanilla",
+    name: "French Custard Vanilla",
+    category: "classic",
+    flavorNotes: "Egg custard base for an extra rich, golden velvet texture.",
+    expectation: "typically available",
+    dietaryTag: "Gluten-Friendly",
+  },
+  {
+    id: "fl-mint-chocolate-chip",
+    name: "Crisp Mint Chocolate Chip",
+    category: "classic",
+    flavorNotes: "Natural cool peppermint cream loaded with dark chocolate flakes.",
+    expectation: "typically available",
+    dietaryTag: "Gluten-Friendly",
+  },
+  {
+    id: "fl-birthday-cake",
+    name: "Confetti Birthday Cake",
+    category: "classic",
+    flavorNotes: "Yellow cake batter ice cream with rainbow sprinkles and blue buttercream swirl.",
+    expectation: "typically available",
+  },
+  {
+    id: "fl-cotton-candy",
+    name: "Carnival Cotton Candy",
+    category: "classic",
+    flavorNotes: "Fun pink and blue swirl with nostalgic county fair cotton candy flavor.",
+    expectation: "typically available",
+    dietaryTag: "Gluten-Friendly",
+  },
+  {
+    id: "fl-orange-creamsicle",
+    name: "Orange Creamsicle Swirl",
+    category: "classic",
+    flavorNotes: "Sweet Florida orange sherbet swirled with smooth vanilla bean ice cream.",
+    expectation: "typically available",
+    dietaryTag: "Gluten-Friendly",
+  },
+  {
+    id: "fl-rum-raisin",
+    name: "Spiced Rum Raisin",
+    category: "classic",
+    flavorNotes: "Plump California raisins soaked in sweet spiced rum essence.",
+    expectation: "typically available",
+    dietaryTag: "Gluten-Friendly",
+  },
+
+  // More Seasonal Flavors
+  {
+    id: "fl-pumpkin-pie",
+    name: "Autumn Harvest Pumpkin Spice",
+    category: "seasonal",
+    flavorNotes: "Real pumpkin purée, cinnamon, nutmeg, ginger, and pie crust bits.",
+    expectation: "while supplies last",
+  },
+  {
+    id: "fl-cider-donut",
+    name: "Apple Cider Donut",
+    category: "seasonal",
+    flavorNotes: "Cinnamon sugar donut pieces swirled into spiced apple cider ice cream.",
+    expectation: "while supplies last",
+  },
+  {
+    id: "fl-peppermint-stick",
+    name: "Winter Peppermint Bark",
+    category: "seasonal",
+    flavorNotes: "Peppermint ice cream packed with red and green crushed candy cane pieces.",
+    expectation: "while supplies last",
+    dietaryTag: "Gluten-Friendly",
+  },
+
+  // More Dietary & Non-Dairy
+  {
+    id: "fl-nsa-butter-pecan",
+    name: "No-Sugar-Added Butter Pecan",
+    category: "dietary",
+    flavorNotes: "Creamy butter pecan with no added sugars. Churned with roasted pecans.",
+    expectation: "typically available",
+    dietaryTag: "No-Sugar-Added",
+  },
+  {
+    id: "fl-nsa-vanilla-raspberry",
+    name: "No-Sugar-Added Vanilla Raspberry",
+    category: "dietary",
+    flavorNotes: "Vanilla base with tart raspberry swirl, crafted with zero added cane sugar.",
+    expectation: "typically available",
+    dietaryTag: "No-Sugar-Added",
+  },
+  {
+    id: "fl-lemon-sorbet",
+    name: "Non-Dairy Zesty Lemon Sorbet",
+    category: "dietary",
+    flavorNotes: "Tart and bright water-based lemon fruit freeze. 100% dairy free.",
+    expectation: "typically available",
+    dietaryTag: "Dairy-Free Sorbet",
+  },
+  {
+    id: "fl-vanilla-yogurt",
+    name: "Low-Fat Vanilla Frozen Yogurt",
+    category: "dietary",
+    flavorNotes: "Active yogurt cultures with gentle sweetness and lower butterfat.",
+    expectation: "typically available",
+    dietaryTag: "Low-Fat",
+  },
+];

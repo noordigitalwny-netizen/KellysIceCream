@@ -32,3 +32,35 @@
 .scoop-corner-lg {
   border-radius: 1.75rem;
 }
+
+/* Print-Friendly Styles for Staff & Customers */
+@media print {
+  header,
+  footer,
+  aside,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-size: 10pt !important;
+    line-height: 1.3 !important;
+  }
+
+  .print-container {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .print-break-inside-avoid {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-border {
+    border-color: #cccccc !important;
+  }
+}
